@@ -1,0 +1,39 @@
+# ignore all image files
+*.mha 
+*.mhd
+*.raw
+*.png
+*.jpeg
+
+# ignore everything in test folder
+results
+
+# ignore pycache files
+*.pyc
+
+# ignore vscode settings folder
+.vscode
+
+# npy arrays
+*.npy
+
+#
+*.pyc
+__pycache__
+.vscode
+.odt
+*.png
+*__pycache__*
+*.mha
+*.pyc
+*tmp/
+*.npy
+*.npz
+*.txt
+*.pt
+
+*.pdf
+*.pkl
+
+# Git ignore:
+**/Webpage
