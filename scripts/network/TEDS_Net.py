@@ -90,7 +90,7 @@ class TEDS_Net(nn.Module):
             if self.mega_P>1:
                 sampled = self.downsample(sampled)
 
-            return sampled,flow_upsamp,flow_field
+            return sampled,flow_upsamp
 
         elif self.no_branches ==2:
             flow_bulk_field,flow_bulk_upsamp,bulk_sampled=self.STN_bulk(BottleNeck,enc_outputs,prior_shape)

@@ -223,22 +223,21 @@ class DecoderBranch(nn.Module):
                 return dec1
 
         elif self.net_depth ==3:
-
             dec3 = self.upconv2(bottleneck)
-            dec3 = torch.cat((dec3,enc_output[-2]),dim=1)
+            dec3 = torch.cat((dec3,enc_output[-1]),dim=1)
             dec3 = self.decoder2(dec3)
             if self.dec_depth ==3:
                 return dec3
 
             dec2 = self.upconv3(dec3)
-            dec2 = torch.cat((dec2,enc_output[-3]),dim=1)
+            dec2 = torch.cat((dec2,enc_output[-2]),dim=1)
             dec2 = self.decoder3(dec2)
 
             if self.dec_depth ==2:
                 return dec2
 
             dec1 = self.upconv4(dec2)
-            dec1 = torch.cat((dec1,enc_output[-4]),dim=1)
+            dec1 = torch.cat((dec1,enc_output[-3]),dim=1)
             dec1 = self.decoder4(dec1)       
 
             if self.dec_depth ==1:
@@ -247,19 +246,18 @@ class DecoderBranch(nn.Module):
         elif self.net_depth ==2:
 
             dec2 = self.upconv3(bottleneck)
-            dec2 = torch.cat((dec2,enc_output[-3]),dim=1)
+            dec2 = torch.cat((dec2,enc_output[-1]),dim=1)
             dec2 = self.decoder3(dec2)
 
             if self.dec_depth ==2:
                 return dec2
 
             dec1 = self.upconv4(dec2)
-            dec1 = torch.cat((dec1,enc_output[-4]),dim=1)
+            dec1 = torch.cat((dec1,enc_output[-2]),dim=1)
             dec1 = self.decoder4(dec1)       
 
             if self.dec_depth ==1:
                 return dec1
-
 
 
 class UNet_MW(nn.Module):
